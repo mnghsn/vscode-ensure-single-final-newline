@@ -1,3 +1,5 @@
+version: "{build}"
+
 install:
   - ps: Install-Product node 6.6.0 x64
 
