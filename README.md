@@ -1,5 +1,9 @@
 # Ensure Single Final Newline for VSCode
 
+[![Travis CI Build Status](https://img.shields.io/travis/jmlntw/vscode-ensure-single-final-newline.svg?label=travisci&maxAge=86400)](https://travis-ci.org/jmlntw/vscode-ensure-single-final-newline)
+[![AppVeyor CI Build Status](https://img.shields.io/appveyor/ci/jmlntw/vscode-ensure-single-final-newline.svg?label=appveyor&maxAge=86400)](https://ci.appveyor.com/project/jmlntw/vscode-ensure-single-final-newline)
+[![Dependency Status](https://img.shields.io/david/jmlntw/vscode-ensure-single-final-newline.svg?maxAge=86400)](https://david-dm.org/jmlntw/vscode-ensure-single-final-newline)
+
 This is a [Visual Studio Code](https://code.visualstudio.com/) extension that ensures all files end with a single new line.
 
 ## Features
