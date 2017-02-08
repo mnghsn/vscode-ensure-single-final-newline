@@ -40,3 +40,5 @@ export function create(insertFinalNewline: boolean = true, file: string = tempfi
         }
     };
 }
+
+export const EOL = vscode.workspace.getConfiguration('files').get('eol', '\n');
