@@ -6,3 +6,7 @@ src/**
 **/*.map
 .gitignore
 tsconfig.json
+
+.editorconfig
+.travis.yml
+appveyor.yml
