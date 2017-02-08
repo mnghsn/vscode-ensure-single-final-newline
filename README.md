@@ -12,6 +12,14 @@ This extension removes extra newlines at the end of the file but keeps only one 
 
 ![Screenshot](images/screenshot.gif)
 
+## Installation
+
+Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.
+
+```
+ext install vscode-ensure-single-final-newline
+```
+
 ## Usage
 
 Enable or disable by setting `files.insertFinalNewline` in VSCode configuration.
