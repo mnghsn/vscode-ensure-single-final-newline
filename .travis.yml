@@ -5,6 +5,11 @@ notifications:
 
 sudo: false
 
+language: node_js
+
+node_js:
+  - "6"
+
 os:
   - osx
   - linux
@@ -17,7 +22,6 @@ before_install:
     fi
 
 install:
-  - npm install -g npm --silent
   - npm install
   - npm run vscode:prepublish
 
