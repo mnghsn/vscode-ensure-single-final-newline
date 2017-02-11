@@ -1,7 +1,7 @@
 {
   "name": "vscode-ensure-single-final-newline",
   "displayName": "Ensure Single Final Newline",
-  "description": "A VSCode extension that ensures all files end with a single new line.",
+  "description": "A VS Code extension that ensures all files end with a single new line.",
   "version": "0.1.0",
   "publisher": "jmlntw",
   "author": {

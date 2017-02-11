@@ -1,4 +1,4 @@
-# Ensure Single Final Newline for VSCode
+# Ensure Single Final Newline for VS Code
 
 [![Build Status](https://travis-ci.org/jmlntw/vscode-ensure-single-final-newline.svg?branch=master)](https://travis-ci.org/jmlntw/vscode-ensure-single-final-newline)
 [![Build status](https://ci.appveyor.com/api/projects/status/088cb7nfu70mhv50?svg=true)](https://ci.appveyor.com/project/jmlntw/vscode-ensure-single-final-newline)
@@ -22,7 +22,7 @@ ext install vscode-ensure-single-final-newline
 
 ## Usage
 
-Enable or disable by setting `files.insertFinalNewline` in VSCode configuration.
+Enable or disable by setting `files.insertFinalNewline` in VS Code configuration.
 
 ```json
 {
