@@ -20,13 +20,13 @@ Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter
 ext install vscode-ensure-single-final-newline
 ```
 
-## Usage
+## Extension Settings
 
-Enable or disable by setting `files.insertFinalNewline` in VS Code configuration.
+Enable or disable by setting `files.ensureSingleFinalNewline` in VS Code configuration.
 
 ```json
 {
-  "files.insertFinalNewline": true
+  "files.ensureSingleFinalNewline": true
 }
 ```
 
