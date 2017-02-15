@@ -32,6 +32,19 @@
   "activationEvents": [
     "*"
   ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Ensure Single Final Newline",
+      "properties": {
+        "files.ensureSingleFinalNewline": {
+          "type": "boolean",
+          "default": true,
+          "description": "Controls whether just one single newline is appended to the file when you save it."
+        }
+      }
+    }
+  },
   "main": "./out/src/extension",
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
