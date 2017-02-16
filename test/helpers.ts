@@ -5,12 +5,17 @@ import * as utils from 'vscode-test-utils';
 import * as assert from 'assert';
 import * as tempfile from 'tempfile';
 
-export function create(insertFinalNewline: boolean = true, file: string = tempfile('.txt')) {
+export function create(
+    ensureSingleFinalNewline: boolean = true,
+    insertFinalNewline: boolean = true,
+    file: string = tempfile('.txt')
+) {
     async function createDocument(filepath: string, content: string = '') {
         const filename = await utils.createFile(content, filepath);
         const document = await vscode.workspace.openTextDocument(filename);
         const config = vscode.workspace.getConfiguration('files');
 
+        await config.update('ensureSingleFinalNewline', ensureSingleFinalNewline, true);
         await config.update('insertFinalNewline', insertFinalNewline, true);
         await vscode.window.showTextDocument(document);
 

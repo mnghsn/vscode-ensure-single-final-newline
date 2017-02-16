@@ -3,6 +3,7 @@
 import {
     Disposable,
     ExtensionContext,
+    Position,
     Range,
     TextDocumentWillSaveEvent,
     TextEdit,
@@ -37,7 +38,7 @@ class EnsureSingleFinalNewlineHandler {
     }
 
     private _onWillSaveTextDocument(event: TextDocumentWillSaveEvent) {
-        if (this._config.get('insertFinalNewline', false)) {
+        if (this._config.get('ensureSingleFinalNewline', false)) {
             const doc = event.document;
             const edits = [];
 
@@ -52,6 +53,15 @@ class EnsureSingleFinalNewlineHandler {
                     }
                 } else {
                     break;
+                }
+            }
+
+            if (!this._config.get('insertFinalNewline', false)) {
+                const lastLineIndex = doc.lineCount - 1;
+                const lastLine = doc.lineAt(lastLineIndex);
+                if (!lastLine.isEmptyOrWhitespace) {
+                    const eol = this._config.get('eol', '\n');
+                    edits.push(TextEdit.insert(new Position(lastLineIndex, lastLine.text.length), eol));
                 }
             }
 
