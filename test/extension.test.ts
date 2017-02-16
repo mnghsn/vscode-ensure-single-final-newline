@@ -2,7 +2,7 @@
 
 import * as utils from 'vscode-test-utils';
 import * as assert from 'assert';
-import {create, EOL} from './helpers';
+import { create, EOL } from './helpers';
 
 suite('Ensure Single Final Newline', () => {
     suiteTeardown(utils.closeAllFiles);

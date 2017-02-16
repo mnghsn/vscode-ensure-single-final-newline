@@ -33,7 +33,7 @@ class EnsureSingleFinalNewlineHandler {
         this._disposable = Disposable.from(...subscriptions);
     }
 
-    dispose(){
+    dispose() {
         this._disposable.dispose();
     }
 
@@ -45,7 +45,7 @@ class EnsureSingleFinalNewlineHandler {
             for (let index = doc.lineCount - 1; index > 0; index--) {
                 const prevLine = doc.lineAt(index - 1);
                 const currentLine = doc.lineAt(index);
-                if (currentLine.isEmptyOrWhitespace){
+                if (currentLine.isEmptyOrWhitespace) {
                     if (prevLine.isEmptyOrWhitespace) {
                         edits.push(TextEdit.delete(new Range(index - 1, 0, index, 0)));
                     } else {
