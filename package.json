@@ -36,11 +36,11 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.32",
-    "@types/node": "^7.0.5",
+    "@types/node": "^8.0.0",
     "mocha": "^3.2.0",
-    "tempfile": "^1.1.1",
+    "tempfile": "^2.0.0",
     "typescript": "^2.0.3",
     "vscode": "^1.0.0",
-    "vscode-test-utils": "0.0.6"
+    "vscode-test-utils": "0.0.8"
   }
 }
