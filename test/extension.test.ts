@@ -9,7 +9,7 @@ suite('Ensure Single Final Newline', () => {
 
     test('no newline; ensureSingleFinalNewline = true; insertFinalNewline = true;', async () => {
         assert.strictEqual(await create(true, true).saveText('foo'), `foo${EOL}`);
-    });
+    }).timeout(5000);
 
     test('no newline; ensureSingleFinalNewline = true; insertFinalNewline = false;', async () => {
         const document = await create(true, false);
