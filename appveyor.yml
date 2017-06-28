@@ -1,18 +1,14 @@
 version: "{build}"
 
 environment:
-  ELECTRON_NO_ATTACH_CONSOLE: 1
+  CODE_VERSION: 1.12.2
 
 install:
-  - ps: Install-Product node 6 x64
-  - npm install -g npm
-  - npm install -g gulp
+  - ps: Install-Product node 6.6.0 x64
+
+build_script:
   - npm install
-
-platform:
-  - x64
-
-build: off
+  - npm run vscode:prepublish
 
 test_script:
-  - npm test
+  - npm test --silent
