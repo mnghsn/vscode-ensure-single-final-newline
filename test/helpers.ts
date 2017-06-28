@@ -14,7 +14,7 @@ function wait(ms: number) {
 export function create(
     ensureSingleFinalNewline: boolean = true,
     insertFinalNewline: boolean = true,
-    file: string = tempy.file({extension: 'txt'})
+    file: string = tempy.file({ extension: 'txt' })
 ) {
     async function createDocument(filepath: string, content: string = '') {
         const filename = await utils.createFile(content, filepath);
