@@ -3,12 +3,12 @@
 import * as vscode from 'vscode';
 import * as utils from 'vscode-test-utils';
 import * as assert from 'assert';
-import * as tempfile from 'tempfile';
+import * as tempy from 'tempy';
 
 export function create(
     ensureSingleFinalNewline: boolean = true,
     insertFinalNewline: boolean = true,
-    file: string = tempfile('.txt')
+    file: string = tempy.file({extension: 'txt'})
 ) {
     async function createDocument(filepath: string, content: string = '') {
         const filename = await utils.createFile(content, filepath);
