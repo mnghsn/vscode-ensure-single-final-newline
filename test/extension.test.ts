@@ -8,43 +8,36 @@ suite('Ensure Single Final Newline', () => {
     suiteTeardown(utils.closeAllFiles);
 
     test('no newline; ensureSingleFinalNewline = true; insertFinalNewline = true;', async () => {
-        const document = await create(true, true);
-        assert.strictEqual(await document.saveText('foo'), `foo${EOL}`);
+        assert.strictEqual(await create(true, true).saveText('foo'), `foo${EOL}`);
     });
 
     test('no newline; ensureSingleFinalNewline = true; insertFinalNewline = false;', async () => {
         const document = await create(true, false);
-        assert.strictEqual(await document.saveText('foo'), `foo${EOL}`);
+        assert.strictEqual(await create(true, false).saveText('foo'), `foo${EOL}`);
     });
 
     test('no newline; ensureSingleFinalNewline = false; insertFinalNewline = true;', async () => {
-        const document = await create(false, true);
-        assert.strictEqual(await document.saveText('foo'), `foo${EOL}`);
+        assert.strictEqual(await create(false, true).saveText('foo'), `foo${EOL}`);
     });
 
     test('no newline; ensureSingleFinalNewline = false; insertFinalNewline = false;', async () => {
-        const document = await create(false, false);
-        assert.strictEqual(await document.saveText('foo'), 'foo');
+        assert.strictEqual(await create(false, false).saveText('foo'), 'foo');
     });
 
     test('2 newlines; ensureSingleFinalNewline = true; insertFinalNewline = true;', async () => {
-        const document = await create(true, true);
-        assert.strictEqual(await document.saveText(`foo${EOL}${EOL}`), `foo${EOL}`);
+        assert.strictEqual(await create(true, true).saveText(`foo${EOL}${EOL}`), `foo${EOL}`);
     });
 
     test('2 newlines; ensureSingleFinalNewline = true; insertFinalNewline = false;', async () => {
-        const document = await create(true, false);
-        assert.strictEqual(await document.saveText(`foo${EOL}${EOL}`), `foo${EOL}`);
+        assert.strictEqual(await create(true, false).saveText(`foo${EOL}${EOL}`), `foo${EOL}`);
     });
 
     test('2 newlines; ensureSingleFinalNewline = false; insertFinalNewline = true;', async () => {
-        const document = await create(false, true);
-        assert.strictEqual(await document.saveText(`foo${EOL}${EOL}`), `foo${EOL}${EOL}`);
+        assert.strictEqual(await create(false, true).saveText(`foo${EOL}${EOL}`), `foo${EOL}${EOL}`);
     });
 
     test('2 newlines; ensureSingleFinalNewline = false; insertFinalNewline = false;', async () => {
-        const document = await create(false, false);
-        assert.strictEqual(await document.saveText(`foo${EOL}${EOL}`), `foo${EOL}${EOL}`);
+        assert.strictEqual(await create(false, false).saveText(`foo${EOL}${EOL}`), `foo${EOL}${EOL}`);
     });
 
 });
