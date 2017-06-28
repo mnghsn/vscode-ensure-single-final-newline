@@ -5,6 +5,12 @@ import * as utils from 'vscode-test-utils';
 import * as assert from 'assert';
 import * as tempy from 'tempy';
 
+function wait(ms: number) {
+    return new Promise<void>(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
+
 export function create(
     ensureSingleFinalNewline: boolean = true,
     insertFinalNewline: boolean = true,
@@ -18,6 +24,7 @@ export function create(
         await config.update('ensureSingleFinalNewline', ensureSingleFinalNewline, true);
         await config.update('insertFinalNewline', insertFinalNewline, true);
         await vscode.window.showTextDocument(document);
+        await wait(50);
 
         return document;
     }
