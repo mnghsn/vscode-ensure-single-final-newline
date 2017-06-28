@@ -1,11 +1,18 @@
 version: "{build}"
 
+environment:
+  ELECTRON_NO_ATTACH_CONSOLE: 1
+
 install:
   - ps: Install-Product node 6.6.0 x64
-
-build_script:
+  - npm install -g npm
   - npm install
-  - npm run vscode:prepublish
+
+platform:
+  - x86
+  - x64
+
+build: off
 
 test_script:
-  - npm test --silent
+  - npm test
