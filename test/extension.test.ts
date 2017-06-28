@@ -7,43 +7,37 @@ import { create, EOL } from './helpers';
 suite('Ensure Single Final Newline', () => {
     suiteTeardown(utils.closeAllFiles);
 
-    test('Inserts a final newline when the file does not have one', async () => {
-        const document = await create(true, true);
-        assert.strictEqual(await document.saveText('FooBar'), `FooBar${EOL}`);
-    });
+    test('no newline; ensureSingleFinalNewline = true; insertFinalNewline = true;', async () => {
+        assert.strictEqual(await create(true, true).saveText('foo'), `foo${EOL}`);
+    }).timeout(5000);
 
-    test('Does not insert newline when the file ends with one newline.', async () => {
-        const document = await create(true, true);
-        assert.strictEqual(await document.saveText(`FooBar${EOL}`), `FooBar${EOL}`);
-    });
-
-    test('Removes extra newlines at the end of the file', async () => {
-        const document = await create(true, true);
-        assert.strictEqual(await document.saveText(`FooBar${EOL}${EOL}`), `FooBar${EOL}`);
-    });
-
-    test('Do not removes extra newlines when `files.ensureSingleFinalNewline` is false', async () => {
-        const document = await create(false, true);
-        assert.strictEqual(await document.saveText(`FooBar${EOL}${EOL}`), `FooBar${EOL}${EOL}`);
-    });
-
-    test('Inserts a newline at the end of the file even `files.insertFinalNewline` is false', async () => {
+    test('no newline; ensureSingleFinalNewline = true; insertFinalNewline = false;', async () => {
         const document = await create(true, false);
-        assert.strictEqual(await document.saveText(`FooBar`), `FooBar${EOL}`);
-    });
+        assert.strictEqual(await create(true, false).saveText('foo'), `foo${EOL}`);
+    }).timeout(5000);
 
-    test('Removes extra newlines at the end of the file even `files.insertFinalNewline` is false', async () => {
-        const document = await create(true, false);
-        assert.strictEqual(await document.saveText(`FooBar${EOL}${EOL}`), `FooBar${EOL}`);
-    });
+    test('no newline; ensureSingleFinalNewline = false; insertFinalNewline = true;', async () => {
+        assert.strictEqual(await create(false, true).saveText('foo'), `foo${EOL}`);
+    }).timeout(5000);
 
-    test('Inserts a final newline as long as `files.insertFinalNewline` is true', async () => {
-        const document = await create(false, true);
-        assert.strictEqual(await document.saveText('FooBar'), `FooBar${EOL}`);
-    });
+    test('no newline; ensureSingleFinalNewline = false; insertFinalNewline = false;', async () => {
+        assert.strictEqual(await create(false, false).saveText('foo'), 'foo');
+    }).timeout(5000);
 
-    test('Does not insert a final newline when both `files.insertFinalNewline` and `files.ensureSingleFinalNewline` are false', async () => {
-        const document = await create(false, false);
-        assert.strictEqual(await document.saveText('FooBar'), 'FooBar');
-    });
+    test('2 newlines; ensureSingleFinalNewline = true; insertFinalNewline = true;', async () => {
+        assert.strictEqual(await create(true, true).saveText(`foo${EOL}${EOL}`), `foo${EOL}`);
+    }).timeout(5000);
+
+    test('2 newlines; ensureSingleFinalNewline = true; insertFinalNewline = false;', async () => {
+        assert.strictEqual(await create(true, false).saveText(`foo${EOL}${EOL}`), `foo${EOL}`);
+    }).timeout(5000);
+
+    test('2 newlines; ensureSingleFinalNewline = false; insertFinalNewline = true;', async () => {
+        assert.strictEqual(await create(false, true).saveText(`foo${EOL}${EOL}`), `foo${EOL}${EOL}`);
+    }).timeout(5000);
+
+    test('2 newlines; ensureSingleFinalNewline = false; insertFinalNewline = false;', async () => {
+        assert.strictEqual(await create(false, false).saveText(`foo${EOL}${EOL}`), `foo${EOL}${EOL}`);
+    }).timeout(5000);
+
 });
