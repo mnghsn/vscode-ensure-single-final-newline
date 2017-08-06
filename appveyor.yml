@@ -1,8 +1,5 @@
 version: "{build}"
 
-environment:
-  CODE_VERSION: 1.12.2
-
 install:
   - ps: Install-Product node 6.6.0 x64
 
