@@ -9,13 +9,19 @@ import {
     TextEdit,
     window,
     workspace,
-    WorkspaceConfiguration
+    WorkspaceConfiguration,
+    version
 } from 'vscode';
 
 export function activate(context: ExtensionContext) {
     const config = workspace.getConfiguration('files');
     const handler = new EnsureSingleFinalNewlineHandler(config);
     context.subscriptions.push(handler);
+
+    window.showWarningMessage(
+        '"vscode-ensure-single-final-newline" has been deprecated. ' +
+        'Please use built-in settings `files.trimFinalNewlines` instead.'
+    )
 }
 
 class EnsureSingleFinalNewlineHandler {
