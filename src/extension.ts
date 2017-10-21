@@ -9,8 +9,7 @@ import {
     TextEdit,
     window,
     workspace,
-    WorkspaceConfiguration,
-    version
+    WorkspaceConfiguration
 } from 'vscode';
 
 export function activate(context: ExtensionContext) {
